@@ -18,6 +18,8 @@ document.getElementById("7").addEventListener('click', onClick);
 document.getElementById("8").addEventListener('click', onClick);
 document.getElementById("9").addEventListener('click', onClick);
 
+var state = true
+
 function onClick(e){
   // x goes first
     // Add innerhtml X or O if there is not a value
@@ -78,4 +80,6 @@ function clear(){
   document.getElementById("7").innerHTML = ''
   document.getElementById("8").innerHTML = ''
   document.getElementById("9").innerHTML = ''
+  playerX = [];
+  playerO = [];
 }
