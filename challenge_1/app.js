@@ -6,23 +6,29 @@ var possibleWins = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9
 var x = [];
 var y = [];
 
-document.getElementById("1").addEventListener("click", onClick);
-document.getElementById("2").addEventListener("click", onClick);
-document.getElementById("3").addEventListener("click", onClick);
-document.getElementById("4").addEventListener("click", onClick);
-document.getElementById("5").addEventListener("click", onClick);
-document.getElementById("6").addEventListener("click", onClick);
-document.getElementById("7").addEventListener("click", onClick);
-document.getElementById("8").addEventListener("click", onClick);
-document.getElementById("9").addEventListener("click", onClick);
+// Cell Click Feature
+// Event Listeners to TIC-TAC-TOE cells
+document.getElementById("1").addEventListener('click', onClick);
+document.getElementById("2").addEventListener('click', onClick);
+document.getElementById("3").addEventListener('click', onClick);
+document.getElementById("4").addEventListener('click', onClick);
+document.getElementById("5").addEventListener('click', onClick);
+document.getElementById("6").addEventListener('click', onClick);
+document.getElementById("7").addEventListener('click', onClick);
+document.getElementById("8").addEventListener('click', onClick);
+document.getElementById("9").addEventListener('click', onClick);
 
 function onClick(e){
   // x goes first
-    // Add innerhtml x or o
-  if (document.getElementById("tracker").value){
-    e.target.innerHTML = 'O'
+    // Add innerhtml X or O if there is not a value
+  if ( e.target.innerHTML ===''){
+    if (document.getElementById('tracker').value){
+      e.target.innerHTML = 'O'
+    } else {
+      e.target.innerHTML = 'X'
+    }
   } else {
-    e.target.innerHTML = 'X'
+    alert('Play Not Allowed')
   }
 
 
@@ -34,5 +40,11 @@ function onClick(e){
     // no change current to !current
 }
 
-// TOD0: reset button
-// clear inner html
+// Reset Feature
+// Event Listener For Reset Button
+// document.getElementById('reset').addEventListener('click', clear)
+
+// // Reset button
+// function clear(){
+//   document.getElementsByClassName('clear').innerHTML = ''
+// }
