@@ -3,8 +3,8 @@ alert('Let\'s play tic-tac-toe!')
 // Possible ways to win
 var possibleWins = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
 
-var x = [];
-var y = [];
+var playerX = [];
+var playerO = [];
 
 // Cell Click Feature
 // Event Listeners to TIC-TAC-TOE cells
@@ -24,20 +24,50 @@ function onClick(e){
   if ( e.target.innerHTML ===''){
     if (document.getElementById('tracker').value){
       e.target.innerHTML = 'O'
+      // Add value to x or o array
+      playerO.push(parseInt(e.target.id))
+      console.log(playerO)
     } else {
       e.target.innerHTML = 'X'
+      // Add value to x or o array
+      playerX.push(parseInt(e.target.id))
+      console.log(playerX)
     }
   } else {
     alert('Play Not Allowed')
   }
 
-
-  // Set div #tracker to keep track of value
-  document.getElementById("tracker").value= !document.getElementById("tracker").value
-  // Add value to x or o array
-  // Check each possible win in values
+   // Check each possible win in values
     // yes alert win
-    // no change current to !current
+  if (playerO.length >= 3){
+    for (var i=0; i < possibleWins.length;i++){
+       if(possibleWins[i].every(function(value){
+          return playerO.includes(value)
+        })){
+          alert('PlayerO Wins')
+          return true
+        }
+    }
+  }
+
+  if (playerX.length >= 3){
+    for (var i=0; i < possibleWins.length;i++){
+       if(possibleWins[i].every(function(value){
+          return playerX.includes(value)
+        })){
+          alert('PlayerX Wins')
+          return true
+        }
+    }
+  }
+
+
+
+    // no-Set div #tracker to keep track of value
+  document.getElementById("tracker").value= !document.getElementById("tracker").value
+
+
+
 }
 
 // Reset Feature
