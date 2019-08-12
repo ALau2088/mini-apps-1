@@ -37,8 +37,7 @@ function onClick(e){
     alert('Play Not Allowed')
   }
 
-   // Check each possible win in values
-    // yes alert win
+  // Player Win Feature
   if (playerO.length >= 3){
     for (var i=0; i < possibleWins.length;i++){
        if(possibleWins[i].every(function(value){
@@ -60,21 +59,23 @@ function onClick(e){
         }
     }
   }
-
-
-
     // no-Set div #tracker to keep track of value
   document.getElementById("tracker").value= !document.getElementById("tracker").value
-
-
-
 }
 
-// Reset Feature
+//Reset Feature
 // Event Listener For Reset Button
-// document.getElementById('reset').addEventListener('click', clear)
+document.getElementById('reset').addEventListener('click', clear)
 
-// // Reset button
-// function clear(){
-//   document.getElementsByClassName('clear').innerHTML = ''
-// }
+// Reset button
+function clear(){
+  document.getElementById("1").innerHTML = ''
+  document.getElementById("2").innerHTML = ''
+  document.getElementById("3").innerHTML = ''
+  document.getElementById("4").innerHTML = ''
+  document.getElementById("5").innerHTML = ''
+  document.getElementById("6").innerHTML = ''
+  document.getElementById("7").innerHTML = ''
+  document.getElementById("8").innerHTML = ''
+  document.getElementById("9").innerHTML = ''
+}
