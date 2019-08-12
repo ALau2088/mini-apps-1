@@ -2,23 +2,72 @@
 <html>
   <head>
     <title>Tic-Tac-Toe</title>
+    <style>
+    .clear {
+      box-sizing: border-box;
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      text-align: center;
+      margin:0px;
+      padding: 0px;
+      font-size: 36px;
+    }
+
+    .container {
+      text-align: center;
+      display: block;
+      margin: 5px auto;
+    }
+    h2, table {
+      text-align: center;
+      margin: 10px auto;
+      border-spacing: 0px;
+    }
+
+    #reset{
+      text-align: center;
+      width: 50px;
+      margin: auto
+    }
+
+    tbody{
+      box-sizing: border-box;
+    }
+
+    #tracker{
+      display: none
+    }
+    </style>
   </head>
   <body>
-    <div>
-      <button id="1" class="clear" value='1'></button>
-      <button id="2" class="clear"value='2'></button>
-      <button id="3" class="clear"value='3'></button>
-    </Div>
-    <div>
-        <button id="4" class="clear" value="4"></button>
-        <button id="5" class="clear" value="5"></button>
-        <button id="6" class="clear" value="6"></button>
-    </div>
-    <div>
-        <button id="7"class="clear" value="7"></button>
-        <button id="8"class="clear" value="8"></button>
-        <button id="9"class="clear" value="9"></button>
-    </div>
+    <h2 id="title">TIC-TAC-TOE</h2>
+    <div class="container">
+    <table>
+      <tbody>
+    <tr>
+      <td id="1" class="clear" value='1'></td>
+      <td id="2" class="clear"value='2'></td>
+      <td id="3" class="clear"value='3'></td>
+    </tr>
+    <tr>
+        <td id="4" class="clear" value="4"></td>
+        <td id="5" class="clear" value="5"></td>
+        <td id="6" class="clear" value="6"></td>
+    </tr>
+    <tr>
+        <td id="7"class="clear" value="7"></td>
+        <td id="8"class="clear" value="8"></td>
+        <td id="9"class="clear" value="9"></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="container">
+    <button id="reset">RESET</button>
+  </div>
+
+  <div id="tracker" value ="true"></div>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
