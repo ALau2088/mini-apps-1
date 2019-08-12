@@ -1,11 +1,15 @@
 alert('Let\'s play tic-tac-toe!')
 
+/* State */
 // Possible ways to win
 var possibleWins = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
 
 var playerX = [];
 var playerO = [];
+var state = true;
+/* State End */
 
+/* Cell Click Feature*/
 // Cell Click Feature
 // Event Listeners to TIC-TAC-TOE cells
 document.getElementById("1").addEventListener('click', onClick);
@@ -18,13 +22,11 @@ document.getElementById("7").addEventListener('click', onClick);
 document.getElementById("8").addEventListener('click', onClick);
 document.getElementById("9").addEventListener('click', onClick);
 
-var state = true
-
 function onClick(e){
   // x goes first
     // Add innerhtml X or O if there is not a value
   if ( e.target.innerHTML ===''){
-    if (document.getElementById('tracker').value){
+    if (state){
       e.target.innerHTML = 'O'
       // Add value to x or o array
       playerO.push(parseInt(e.target.id))
@@ -62,10 +64,12 @@ function onClick(e){
     }
   }
     // no-Set div #tracker to keep track of value
-  document.getElementById("tracker").value= !document.getElementById("tracker").value
+  // document.getElementById("tracker").value= !document.getElementById("tracker").value
+  state = !state
 }
+/* Cell Click Feature End */
 
-//Reset Feature
+/* Reset Feature */
 // Event Listener For Reset Button
 document.getElementById('reset').addEventListener('click', clear)
 
@@ -83,3 +87,4 @@ function clear(){
   playerX = [];
   playerO = [];
 }
+/* Reset Feature End*/
