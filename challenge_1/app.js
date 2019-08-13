@@ -35,12 +35,10 @@ function onClick(e){
       e.target.innerHTML = 'O'
       // Add value to x or o array
       playerO.push(parseInt(e.target.id))
-      console.log(playerO)
     } else {
       e.target.innerHTML = 'X'
       // Add value to x or o array
       playerX.push(parseInt(e.target.id))
-      console.log(playerX)
     }
   } else {
     alert('Play Not Allowed')
@@ -56,10 +54,7 @@ function onClick(e){
           // Increase player0 wins by 1
           playerOWins++
           // Update DOM
-          var newSpanEl = document.createElement('span')
-          var oWinsText = document.createTextNode(playerOWins.toString())
-          newSpanEl.appendChild(oWinsText)
-          document.getElementById('playerO').append(newSpanEl)
+          document.getElementById('playerO').innerHTML = playerOWins
           return
         }
     }
@@ -74,10 +69,7 @@ function onClick(e){
           // Increase playerX wins by 1
           playerXWins++
           // Update DOM
-          var newSpanEl = document.createElement('span')
-          var oWinsText = document.createTextNode(playerXWins.toString())
-          newSpanEl.appendChild(oWinsText)
-          document.getElementById('playerX').append(newSpanEl)
+          document.getElementById('playerX').innerHTML = playerXWins
           return
         }
     }
