@@ -6,7 +6,8 @@ var possibleWins = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9
 
 var playerX = [];
 var playerO = [];
-var state = true;
+var occupiedCells = []
+var state = true; // true: playerO's turn; false: playerX's turn
 /* State End */
 
 /* Cell Click Feature*/
@@ -25,7 +26,9 @@ document.getElementById("9").addEventListener('click', onClick);
 function onClick(e){
   // x goes first
     // Add innerhtml X or O if there is not a value
-  if ( e.target.innerHTML ===''){
+  if (!occupiedCells.includes(e.target.id)){
+    // Add cell id to occupied cells
+    occupiedCells.push(e.target.id)
     if (state){
       e.target.innerHTML = 'O'
       // Add value to x or o array
@@ -47,8 +50,8 @@ function onClick(e){
        if(possibleWins[i].every(function(value){
           return playerO.includes(value)
         })){
-          alert('PlayerO Wins')
-          return true
+          setTimeout(function(){alert('PlayerO Wins')}, 1000)
+          return
         }
     }
   }
@@ -58,8 +61,8 @@ function onClick(e){
        if(possibleWins[i].every(function(value){
           return playerX.includes(value)
         })){
-          alert('PlayerX Wins')
-          return true
+          setTimeout(function(){alert('PlayerX Wins')}, 1000)
+          return
         }
     }
   }
