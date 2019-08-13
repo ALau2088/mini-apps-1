@@ -8,6 +8,8 @@ var playerX = [];
 var playerO = [];
 var occupiedCells = []
 var state = true; // true: playerO's turn; false: playerX's turn
+var playerXWins = 0;
+var playerOWins = 0;
 /* State End */
 
 /* Cell Click Feature*/
@@ -50,7 +52,14 @@ function onClick(e){
        if(possibleWins[i].every(function(value){
           return playerO.includes(value)
         })){
-          setTimeout(function(){alert('PlayerO Wins')}, 1000)
+          setTimeout(function(){alert('PlayerO Wins')}, 500)
+          // Increase player0 wins by 1
+          playerOWins++
+          // Update DOM
+          var newSpanEl = document.createElement('span')
+          var oWinsText = document.createTextNode(playerOWins.toString())
+          newSpanEl.appendChild(oWinsText)
+          document.getElementById('playerO').append(newSpanEl)
           return
         }
     }
@@ -61,7 +70,14 @@ function onClick(e){
        if(possibleWins[i].every(function(value){
           return playerX.includes(value)
         })){
-          setTimeout(function(){alert('PlayerX Wins')}, 1000)
+          setTimeout(function(){alert('PlayerX Wins')}, 500)
+          // Increase playerX wins by 1
+          playerXWins++
+          // Update DOM
+          var newSpanEl = document.createElement('span')
+          var oWinsText = document.createTextNode(playerXWins.toString())
+          newSpanEl.appendChild(oWinsText)
+          document.getElementById('playerX').append(newSpanEl)
           return
         }
     }
@@ -89,5 +105,6 @@ function clear(){
   document.getElementById("9").innerHTML = ''
   playerX = [];
   playerO = [];
+  occupiedCells = [];
 }
 /* Reset Feature End*/
